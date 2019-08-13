@@ -17,9 +17,9 @@ deploy:
     script: bash docker_push.sh $TRAVIS_BRANCH
     on:
       all_branches: true
-      condition: $TRAVIS_BRANCH =~ develop
+      condition: $TRAVIS_BRANCH =~ dev/ci-test
 
 branches:
   only:
     - master
-    - develop
+    - dev/ci-test
