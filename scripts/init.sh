@@ -13,9 +13,6 @@ fi
 
 sudo snap install docker
 
-mkdir app
-cd app
-
 rm -rf backend
 
 sudo docker-compose up -d
