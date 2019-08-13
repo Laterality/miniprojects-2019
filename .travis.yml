@@ -6,7 +6,7 @@ script:
   - backend/gradlew build
 
 before_deploy:
-  - docker build -t wootube backend
+  - docker build -t wootube backend --build-arg JAR_NAME=$JAR_NAME JAR_PATH=$(find . find . -name $JAR_NAME)
 
 deploy:
   # Deploy for production
