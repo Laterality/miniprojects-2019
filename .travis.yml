@@ -15,8 +15,6 @@ deploy:
       branch: master
   - provider: script
     script: bash docker_push.sh dev
-    on:
-      branch: /dev/*/
 
 branches:
   only:
