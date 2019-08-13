@@ -11,11 +11,11 @@ before_deploy:
 deploy:
   # Deploy for production
   - provider: script
-    script: bash docker_push.sh latest
+    script: bash scripts/docker_push.sh latest
     on:
       branch: master
   # Deploy for development
   - provider: script
-    script: bash docker_push.sh dev
+    script: bash scripts/docker_push.sh dev
     on:
       branch: dev/ci-test
