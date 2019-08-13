@@ -3,7 +3,7 @@ services:
   - docker
 
 script:
-  - backend/gradlew build
+  - bash scripts/jar_build.sh
 
 before_deploy:
   - bash scripts/docker_build.sh
