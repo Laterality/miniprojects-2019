@@ -5,8 +5,8 @@ ARG JAR_PATH
 
 ENV JAR_NAME $JAR_NAME
 
-COPY $JAR_PATH /usr/src/app/
+COPY $JAR_PATH /usr/src/app/$JAR_NAME
 
 WORKDIR /usr/src/app
 
-CMD java -jar /usr/src/app/$JAR_NAME
+CMD java -jar $JAR_NAME
