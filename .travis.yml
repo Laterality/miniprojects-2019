@@ -6,17 +6,17 @@ script:
   - backend/gradlew build
 
 before_deploy:
-  - docker build -t ${DOCKER_USERNAME}/wootube:${DOCKER_IMAGE_VERSION} backend
+  - docker build -t ${DOCKER_USERNAME}/wootube backend
 
 deploy:
   - provider: script
-    script: bash docker_push.sh
+    script: bash docker_push.sh latest
     on:
       branch: master
   - provider: script
-    script: bash docker_push.sh
+    script: bash docker_push.sh dev
     on:
-      branch: develop
+      branch: /dev/*/
 
 branches:
   only:
