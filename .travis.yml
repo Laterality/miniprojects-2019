@@ -6,20 +6,16 @@ script:
   - backend/gradlew build
 
 before_deploy:
-  - docker build -t ${DOCKER_USERNAME}/wootube backend
+  - docker build -t wootube backend
 
 deploy:
+  # Deploy for production
   - provider: script
     script: bash docker_push.sh latest
     on:
       branch: master
+  # Deploy for development
   - provider: script
-    script: bash docker_push.sh $TRAVIS_BRANCH
+    script: bash docker_push.sh dev
     on:
-      all_branches: true
-      condition: $TRAVIS_BRANCH =~ dev/ci-test
-
-branches:
-  only:
-    - master
-    - dev/ci-test
+      branch: dev/ci-test
