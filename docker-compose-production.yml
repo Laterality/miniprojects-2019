@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  app:
+    image: laterality/wootube:latest
+    container_name: app
+    depends_on:
+      - db
+    volumes:
+      - ./log:/var/log/app
+    networks:
+      - app-net
+  db:
+    image: mysql:8.0.16
+    container_name: app-db
+    volumes:
+      - ./db_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=wootube
+    networks:
+      - app-net
+  nginx:
+    image: laterality/wootube-view:latest
+    container_name: web
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/log:/var/log/nginx
+    networks:
+      - app-net
+
+networks:
+  app-net:

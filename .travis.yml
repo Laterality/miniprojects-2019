@@ -3,22 +3,19 @@ services:
   - docker
 
 script:
-  - backend/gradlew build
+  - bash scripts/jar_build.sh
 
 before_deploy:
-  - docker build -t ${DOCKER_USERNAME}/wootube:${DOCKER_IMAGE_VERSION} backend
+  - bash scripts/docker_build.sh
 
 deploy:
+  # Deploy for production
   - provider: script
-    script: bash docker_push.sh
+    script: bash scripts/docker_push.sh latest
     on:
       branch: master
+  # Deploy for development
   - provider: script
-    script: bash docker_push.sh
+    script: bash scripts/docker_push.sh dev
     on:
       branch: develop
-
-branches:
-  only:
-    - master
-    - "dev/*"

@@ -1,0 +1,12 @@
+FROM openjdk:8
+
+ARG JAR_NAME
+ARG JAR_PATH
+
+ENV JAR_NAME $JAR_NAME
+
+COPY $JAR_PATH /usr/src/app/$JAR_NAME
+
+WORKDIR /usr/src/app
+
+CMD java -jar $JAR_NAME
