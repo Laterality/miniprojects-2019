@@ -11,4 +11,6 @@ else
     echo 'Argument [production, develop] is required'
 fi
 
+cd miniprojects-2019
+
 sudo docker-compose up -d
