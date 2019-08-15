@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install netcat-openbsd -y
 
 COPY . /usr/src/app/build
 WORKDIR /usr/src/app/build
-RUN ./gradlew build
+RUN ./gradlew --parallel build
 RUN mv ./build/libs/$JAR_NAME /usr/src/app
 RUN mv ./docker-entrypoint.sh /usr/src/app
 
