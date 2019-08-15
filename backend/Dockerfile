@@ -8,6 +8,7 @@ COPY . /usr/src/app/build
 WORKDIR /usr/src/app/build
 RUN ./gradlew build
 RUN mv ./build/libs/$JAR_NAME /usr/src/app
+RUN mv ./docker-entrypoint.sh /usr/src/app
 
 WORKDIR /usr/src/app
 RUN rm -rf build
