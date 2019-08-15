@@ -1,20 +1,15 @@
 # Download docer-compose.yml, nginx configuration and static resources
 
-mkdir app
-cd app
+sudo snap install docker
 
 if [ $1 == "production" ]; then
-    # wget -O - https://raw.githubusercontent.com/everyone-driven-development/miniprojects-2019/master/docker-compose-production.yml > docker-compose.yml
-
-    wget -O - https://raw.githubusercontent.com/laterality/miniprojects-2019/develop/docker-compose-production.yml > docker-compose.yml
-elif [ $1 == "develop" ]; then
-    # wget -O - https://raw.githubusercontent.com/everyone-driven-development/miniprojects-2019/develop/docker-compose-dev.yml > docker-compose.yml
-
-    wget -O - https://raw.githubusercontent.com/Laterality/miniprojects-2019/develop/docker-compose-dev.yml > docker-compose.yml
+    git clone -b EDD https://github.com/woowacourse/miniprojects-2019
+elif [ $1 == "dev" ]; then
+    git clone -b $3 https://github.com/$2/miniprojects-2019
 else
     echo 'Argument [production, develop] is required'
 fi
 
-sudo snap install docker
+cd miniprojects-2019
 
 sudo docker-compose up -d
