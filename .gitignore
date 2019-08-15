@@ -1,9 +1,10 @@
-HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
+backend/HELP.md
+backend/.gradle
+backend/build/
+!backend/gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+backend/bin
 
 ### STS ###
 .apt_generated
@@ -15,11 +16,11 @@ build/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+backend/.idea
 *.iws
 *.iml
 *.ipr
-out/
+backend/out/
 
 ### NetBeans ###
 /nbproject/private/
