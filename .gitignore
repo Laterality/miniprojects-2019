@@ -4,23 +4,30 @@ backend/build/
 !backend/gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-backend/bin/
+backend/bin
 
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+backend/.apt_generated
+backend/.classpath
+backend/.factorypath
+backend/.project
+backend/.settings
+backend/.springBeans
+backend/.sts4-cache
 
 ### IntelliJ IDEA ###
 backend/.idea
 *.iws
 *.iml
 *.ipr
-out/
+backend/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
 
 ### VS Code ###
-**/.vscode/
+.vscode/
