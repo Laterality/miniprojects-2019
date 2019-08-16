@@ -4,6 +4,7 @@ import com.woowacourse.edd.application.dto.VideoPreviewResponse;
 import com.woowacourse.edd.application.dto.VideoSaveRequestDto;
 import com.woowacourse.edd.application.response.VideoResponse;
 import com.woowacourse.edd.application.service.VideoService;
+import com.woowacourse.edd.exceptions.InvalidFilterException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public class VideoController {
         if (DATE.equals(filter)) {
             return new ResponseEntity<>(videoService.findVideosByDate(page, limit), HttpStatus.OK);
         }
-        return ResponseEntity.ok(videoService.findVideosByViewNumbers(page, limit));
+        throw new InvalidFilterException();
     }
 
     @PostMapping
