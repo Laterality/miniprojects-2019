@@ -25,8 +25,8 @@ public class VideoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<VideoResponse> findVideo(@PathVariable long id) {
-        VideoResponse videoResponse= videoService.find(id);
-        return new ResponseEntity<>(videoResponse, HttpStatus.OK);
+        VideoResponse videoResponse = videoService.find(id);
+        return ResponseEntity.ok(videoResponse);
     }
 
     @GetMapping
@@ -34,12 +34,12 @@ public class VideoController {
         if (DATE.equals(filter)) {
             return new ResponseEntity<>(videoService.findVideosByDate(page, limit), HttpStatus.OK);
         }
-        return new ResponseEntity<>(videoService.findVideosByViewNumbers(page, limit), HttpStatus.OK);
+        return ResponseEntity.ok(videoService.findVideosByViewNumbers(page, limit));
     }
 
     @PostMapping
     public ResponseEntity<VideoResponse> saveVideo(@RequestBody VideoSaveRequestDto requestDto) {
         VideoResponse response = videoService.save(requestDto);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return ResponseEntity.ok(response);
     }
 }

@@ -42,8 +42,8 @@ public class VideoService {
         Page<Video> foundVideos = videoRepository.findAll(pageRequest);
 
         return foundVideos.getContent().stream()
-                .map(videoConverter::toPreviewResponse)
-                .collect(toList());
+            .map(videoConverter::toPreviewResponse)
+            .collect(toList());
     }
 
     public List<VideoPreviewResponse> findVideosByViewNumbers(int page, int limit) {
