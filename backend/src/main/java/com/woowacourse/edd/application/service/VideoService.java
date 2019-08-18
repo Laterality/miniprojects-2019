@@ -24,12 +24,12 @@ public class VideoService {
 
     private static final String CREATE_DATE = "createDate";
     private final VideoRepository videoRepository;
-    private final VideoConverter videoConverter;
+
+    private final VideoConverter videoConverter = new VideoConverter();
 
     @Autowired
-    public VideoService(VideoRepository videoRepository, VideoConverter videoConverter) {
+    public VideoService(VideoRepository videoRepository) {
         this.videoRepository = videoRepository;
-        this.videoConverter = videoConverter;
     }
 
     public VideoResponse save(VideoSaveRequestDto requestDto) {
@@ -53,7 +53,7 @@ public class VideoService {
         Video video = findById(id);
         return videoConverter.toResponse(video);
     }
-    
+
     @Transactional(readOnly = true)
     private Video findById(long id) {
         return videoRepository.findById(id).orElseThrow(VideoNotFoundException::new);
