@@ -32,7 +32,7 @@ public class User {
 
     private Boolean isDeleted;
 
-    private User() {
+    public User() {
     }
 
     public User(String name, String email, String password, Boolean isDeleted) {

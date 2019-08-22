@@ -34,7 +34,7 @@ public class Video {
     @JoinColumn(name = "creator_id", nullable = false)
     private User creator;
 
-    private Video() {
+    public Video() {
     }
 
     public Video(String youtubeId, String title, String contents, User creator) {
