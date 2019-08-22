@@ -1,25 +1,27 @@
 const handleSignUpEvent = function (event) {
-    const nameElm  = document.querySelector('input[type=name]')
+    const nameElm = document.querySelector('input[type=name]')
     const emailElm = document.querySelector('input[type=email]')
     const passwordElm = document.querySelector('input[type=password]')
 
-    const data = {
+    const body = JSON.stringify({
         name : nameElm.value,
         email : emailElm.value,
         password : passwordElm.value
-    }
-    const body = JSON.stringify(data)
+    })
     api.signup(body)
     .then(res => {
         if (res.status === 201) {
             window.location.href = '/login.html'
             return
         }
+
+        return res.json()
     })
-    .then(res => {
-        if (res.message || res.error) {
-            alert(res.message)
-            return false
+    .then(json => {
+        if (json.message) {
+            const alertElm = document.querySelector('.alert-danger')
+            alertElm.innerText = json.message
+            alertElm.classList.remove('d-none')
         }
     })
 }
