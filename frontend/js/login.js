@@ -13,7 +13,7 @@ const handleSignInEvent = function (event) {
             window.location.href = '/index.html'
             return;
         }
-        return res.json();
+        return res.json()
     })
     .then(res => {
         if (res.error || res.message) {
