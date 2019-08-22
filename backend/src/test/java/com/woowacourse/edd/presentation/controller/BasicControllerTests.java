@@ -23,6 +23,8 @@ public class BasicControllerTests {
     protected static final String DEFAULT_LOGIN_PASSWORD = "P@ssW0rd";
     protected static final String COOKIE_JSESSIONID = "JSESSIONID";
 
+    protected static final Long DEFAULT_VIDEO_ID = 1L;
+
     @Autowired
     protected WebTestClient webTestClient;
 

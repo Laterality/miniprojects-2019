@@ -25,7 +25,8 @@ public class VideoConverter {
     public VideoPreviewResponse toPreviewResponse(Video video) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMddHH");
         String date = video.getCreateDate().format(format);
-        return new VideoPreviewResponse(video.getId(), video.getYoutubeId(), video.getTitle(), date);
+        VideoResponse.CreatorResponse creatorResponse = new VideoResponse.CreatorResponse(video.getCreator().getId(), video.getCreator().getName());
+        return new VideoPreviewResponse(video.getId(), video.getYoutubeId(), video.getTitle(), date, creatorResponse);
     }
 
     public VideoUpdateResponse toUpdateResponse(Video video) {
