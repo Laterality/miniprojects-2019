@@ -15,10 +15,12 @@ const handleSignInEvent = function (event) {
         }
         return res.json()
     })
-    .then(res => {
-        if (res.error || res.message) {
+    .then(json => {
+        if (res.message) {
             alert(res.message)
-            return false
+            const alertElm = document.querySelector('.alert-danger');
+            alertElm.innerText = json.message
+            alertElm.classList.remove('d-none');
         }
     });
 }
