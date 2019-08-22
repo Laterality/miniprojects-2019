@@ -31,7 +31,7 @@ public class Video {
     private LocalDateTime createDate;
 
     @ManyToOne
-    @JoinColumn(name = "creator_id")
+    @JoinColumn(name = "creator_id", nullable = false)
     private User creator;
 
     private Video() {
