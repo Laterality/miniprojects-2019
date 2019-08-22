@@ -68,7 +68,9 @@ public class VideoControllerTests extends BasicControllerTests {
             .jsonPath("$.youtubeId").isEqualTo(DEFAULT_VIDEO_YOUTUBEID)
             .jsonPath("$.title").isEqualTo(DEFAULT_VIDEO_TITLE)
             .jsonPath("$.contents").isEqualTo(DEFAULT_VIDEO_CONTENTS)
-            .jsonPath("$.createDate").isEqualTo(Utils.getFormedDate(DEFAULT_VIDEO_DATETIME));
+            .jsonPath("$.createDate").isEqualTo(Utils.getFormedDate(DEFAULT_VIDEO_DATETIME))
+            .jsonPath("$.creator.id").isEqualTo(DEFAULT_LOGIN_ID)
+            .jsonPath("$.creator.name").isEqualTo(DEFAULT_LOGIN_NAME);
     }
 
     @Test
