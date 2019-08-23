@@ -8,7 +8,9 @@ import org.springframework.test.web.reactive.server.EntityExchangeResult;
 import org.springframework.test.web.reactive.server.StatusAssertions;
 import reactor.core.publisher.Mono;
 
-import static com.woowacourse.edd.application.dto.UserRequestDto.*;
+import static com.woowacourse.edd.application.dto.UserRequestDto.INVALID_EMAIL_MESSAGE;
+import static com.woowacourse.edd.application.dto.UserRequestDto.INVALID_NAME_MESSAGE;
+import static com.woowacourse.edd.application.dto.UserRequestDto.INVALID_PASSWORD_MESSAGE;
 import static com.woowacourse.edd.presentation.controller.UserController.USER_URL;
 
 public class UserControllerTests extends BasicControllerTests {
@@ -110,6 +112,11 @@ public class UserControllerTests extends BasicControllerTests {
         String sid = getLoginCookie(loginRequestDto);
         deleteUser(authorizedUserUrl, sid)
             .isForbidden();
+    }
+
+    @Test
+    @DisplayName("가입된 유저가 탈퇴한 유저의 정보를 조회할 때")
+    void user_() {
     }
 
     @Test
