@@ -86,6 +86,18 @@ const Api = function () {
         return request(`${baseUrl}/v1/users`, 'POST', dataBody)
     }
 
+    const requestUser = (id) => {
+        return request(`${baseUrl}/v1/users/${id}`, 'GET');
+    }
+
+    const updateUser = (id, body) => {
+        return request(`${baseUrl}/v1/users/${id}`, 'PUT', body)
+    }
+
+    const retrieveLoginInfo = () => {
+        return requestWithoutBody(`${baseUrl}/v1/login/users`, 'GET')
+    }
+
     return {
         requestVideos,
         requestVideo,
@@ -93,8 +105,11 @@ const Api = function () {
         updateVideo,
         deleteVideo,
         postLogin,
-        signup
+        signup,
+        requestUser,
+        updateUser,
+        retrieveLoginInfo,
     }
-
 }
+
 const api = new Api()
