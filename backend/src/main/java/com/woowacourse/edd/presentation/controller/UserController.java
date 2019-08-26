@@ -56,6 +56,7 @@ public class UserController {
     public ResponseEntity deleteUser(@PathVariable Long id, HttpSession session) {
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
         userService.delete(id, sessionUser.getId());
+        session.invalidate();
         return ResponseEntity.noContent().build();
     }
 }
