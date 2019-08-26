@@ -97,6 +97,10 @@ const Api = function () {
         return request(`${baseUrl}/v1/users/${id}`, 'PUT', body)
     }
 
+    const deleteUser = (id) => {
+        return requestWithoutBody(`${baseUrl}/v1/users/${id}`, 'DELETE')
+    }
+
     const retrieveLoginInfo = () => {
         return requestWithoutBody(`${baseUrl}/v1/login/users`, 'GET')
     }
@@ -112,6 +116,7 @@ const Api = function () {
         requestUser,
         updateUser,
         retrieveLoginInfo,
+        deleteUser,
     }
 }
 
