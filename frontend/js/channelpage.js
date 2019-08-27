@@ -30,16 +30,12 @@ document.querySelector('#btn-submit').addEventListener('click', () => {
             window.location.reload()
             return
         }
-        console.log(res);
         res.json()
         .then(json => {
             const alertElm = document.querySelector('.alert.alert-danger')
             alertElm.innerText = json.message
             alertElm.classList.remove('d-none')
         })
-    })
-    .catch(err => {
-        console.log(err)
     })
 })
 
