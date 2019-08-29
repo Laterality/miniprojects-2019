@@ -28,7 +28,8 @@ const Api = function () {
         'Content-Type': 'application/json'
     }
 
-    const baseUrl = '/api'
+    // const baseUrl = '/api'
+    const baseUrl = 'http://localhost:8080'
 
     const request = (url, method, body) => {
         return fetch(url, {

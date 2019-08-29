@@ -4,11 +4,14 @@ const addVideoDetailTemplate = function (data) {
             src="https://www.youtube.com/embed/${data.youtubeId}" frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
-        <br><br>
         <div class="form-group row">
             <div class="col-md-12">
                 <h1 class="text-bold">${data.title}</h1>
                 <h4>조회수 ${data.viewCount}회</h4>
+                <div>
+                    <button id="btn-edit" type="button" class="btn btn-rounded btn-icon bg-transparent"><i class="ti-pencil"></i></button>
+                    <button id="btn-delete" type="button" class="btn btn-rounded btn-icon bg-transparent"><i class="ti-trash"></i></button>
+                </div>
             </div>
         </div>
         <hr>
