@@ -1,7 +1,6 @@
 package com.woowacourse.edd.application.service;
 
 import com.woowacourse.edd.application.dto.VideoUpdateRequestDto;
-import com.woowacourse.edd.application.response.VideoPreviewResponse;
 import com.woowacourse.edd.domain.Video;
 import com.woowacourse.edd.exceptions.VideoNotFoundException;
 import com.woowacourse.edd.repository.VideoRepository;
@@ -43,15 +42,15 @@ class VideoInternalService {
         findById(videoId).increaseViewCount();
     }
 
-    public Video update(Long id, VideoUpdateRequestDto requestDto) {
+    public Video update(Long id, VideoUpdateRequestDto requestDto, Long loginedUserId) {
         Video video = findById(id);
-        video.update(requestDto.getYoutubeId(), requestDto.getTitle(), requestDto.getContents());
+        video.update(requestDto.getYoutubeId(), requestDto.getTitle(), requestDto.getContents(), loginedUserId);
         return video;
     }
 
-    public void delete(Long id) {
+    public void delete(Long id, Long loginedUserId) {
         Video video = findById(id);
-        video.delete();
+        video.delete(loginedUserId);
     }
 
     public List<Video> findByCreatorId(Long creatorId) {
