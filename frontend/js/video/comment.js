@@ -73,11 +73,12 @@ const commentApp = (function() {
         }
 
         const init = function() {
-            saveComment();
-            prepareEditComment();
-            submitEditComment();
-            deleteComment();
-            loadComments();
+            saveComment()
+            prepareEditComment()
+            submitEditComment()
+            deleteComment()
+            loadComments()
+            commentService.refreshCommentCount()
         }
 
         return {
@@ -167,7 +168,8 @@ const commentApp = (function() {
             save: save,
             prepareEdit: prepareEdit,
             submitEdit: submitEdit,
-            deleteComment: deleteComment
+            deleteComment: deleteComment,
+            refreshCommentCount: refreshCommentCount,
         }
     }
 
